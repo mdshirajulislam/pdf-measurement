@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Measuring Tool</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- PDF.js imports -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.viewer.min.css">
+</head>
+
+<div id="measurement-panel">
+    <div class="panel-header-box">
+        <h3>📏 Measurement Results</h3>
+        <button id="clear-results" onclick="clearMeasurements()">
+            🗑️ Clear All
+        </button>
+    </div>
+    <div id="measurement-list"></div>
+</div>
+<body>
+   
+    <div id="drop_zone">
+        Drag and drop a PDF file here
+        <button id="select_button">Select PDF File</button>
+    </div>
+    <input type="file" id="file_input" accept="application/pdf" hidden>
+    <p class="instructions">Click twice on the PDF to measure distance. Hold Ctrl when clicking the second point to snap horizontally or vertically.</p>
+
+    <div id="zoom_controls">
+        <button id="prev_page">Previous</button>
+        <span id="page_info">Page 1 of 1</span>
+        <button id="next_page">Next</button>
+
+        <button id="zoom_out">-</button>
+        <span id="zoom_level">100%</span>
+        <button id="zoom_in">+</button>
+        <button id="zoom_reset">Reset</button>
+    </div>
+    
+    <div id="page_dimensions"></div>
+    <div id="output"></div>
+    <canvas id="pdf_canvas"></canvas>
+    <div id="cursor_position">Coordinates: [0, 0]</div>
+    <button id="mode_toggle">Switch to Area Mode</button>
+
+    <!-- REMOVED DUPLICATE PDF.js SCRIPT HERE -->
+    <script src="script.js"></script>
+</body>
+</html>
